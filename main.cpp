@@ -30,7 +30,9 @@ void convert_min_to_s(int num){
 }
 
 void inventory(std::vector<std::string> inv){
-    
+    for(int i=0; i < inv.size(); i++){
+        std::cout << inv[i] << "\n";
+    }
 }
 
 void integer(int i) {
@@ -38,6 +40,8 @@ void integer(int i) {
         negative_algo(num);
     } else if (i == 2) {
         convert_min_to_s(num);
+    } else if (i == 3) {
+        inventory(inv);
     } else if (i == 999) {
         exitTool = true;
     }
