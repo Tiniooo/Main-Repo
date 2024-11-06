@@ -2,9 +2,10 @@
 #include <string>
 #include <vector>
 
-bool exitTool = false;
+bool exitTool;
+bool exitInv;
 std::vector<std::string> inv = {"Apple", "Sword"};
-std::string push;
+std::string item;
 int num = 0;
 int i, ii;
 
@@ -29,9 +30,22 @@ void convert_min_to_s(int num){
     }
 }
 
-void inventory(std::vector<std::string> inv){
+void inventory(std::vector<std::string> inv, int num, bool exitInv, std::string item){
     for(int i=0; i < inv.size(); i++){
         std::cout << inv[i] << "\n";
+    }
+    std::cout << "[1] Add";
+    std::cout << "[2] Remove";
+    std::cout << "[3] Exit";
+    std::cin >> num;
+    if (num == 1) {
+        std::cout << "Type Something: ";
+        std::cin >> item;
+        inv.push_back(item);
+    } else if (num == 2) {
+
+    } else if (num == 3) {
+
     }
 }
 
@@ -41,7 +55,7 @@ void integer(int i) {
     } else if (i == 2) {
         convert_min_to_s(num);
     } else if (i == 3) {
-        inventory(inv);
+        inventory(inv, num, exitInv, item);
     } else if (i == 999) {
         exitTool = true;
     }
