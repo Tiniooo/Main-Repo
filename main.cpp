@@ -31,22 +31,26 @@ void convert_min_to_s(int num){
 }
 
 void inventory(std::vector<std::string> inv, int num, bool exitInv, std::string item){
-    for(int i=0; i < inv.size(); i++){
-        std::cout << inv[i] << "\n";
-    }
-    std::cout << "[1] Add";
-    std::cout << "[2] Remove";
-    std::cout << "[3] Exit";
-    std::cin >> num;
-    if (num == 1) {
-        std::cout << "Type Something: ";
-        std::cin >> item;
-        inv.push_back(item);
-    } else if (num == 2) {
+    while(!exitInv){
+        for(int i=0; i < inv.size(); i++){
+            std::cout << inv[i] << "\n";
+        }
+        std::cout << "[1] Add\n";
+        std::cout << "[2] Remove\n";
+        std::cout << "[3] Exit\n";
+        std::cout << "\nEnter: ";
+        std::cin >> num;
+        if (num == 1) {
+            std::cout << "\nType Something: ";
+            std::cin >> item;
+            inv.push_back(item);
+        } else if (num == 2) {
 
-    } else if (num == 3) {
-
+        } else if (num == 3) {
+            exitInv = true;
+        }
     }
+
 }
 
 void integer(int i) {
@@ -65,6 +69,7 @@ int main() {
     while(!exitTool) {
         std::cout << "[1]Negative Algoritm\n";
         std::cout << "[2]Convert Minute To Second\n";
+        std::cout << "[3]Inventory System \n";
         std::cout << "[999]Exit\n";
         std::cout << "\nEnter: ";
         std::cin >> i;
