@@ -6,8 +6,8 @@ bool exitTool;
 bool exitInv;
 std::vector<std::string> inv = {"Apple", "Sword"};
 std::string item;
-int num = 0;
-int i, ii;
+std::string input;
+int i, ii, num;
 
 
 void negative_algo(int num) {
@@ -30,7 +30,7 @@ void convert_min_to_s(int num){
     }
 }
 
-void inventory(std::vector<std::string> inv, int num, bool exitInv, std::string item){
+void inventory(std::vector<std::string> inv, std::string input, bool exitInv, std::string item){
     while(!exitInv){
         for(int i=0; i < inv.size(); i++){
             std::cout << inv[i] << "\n";
@@ -39,14 +39,16 @@ void inventory(std::vector<std::string> inv, int num, bool exitInv, std::string 
         std::cout << "[2] Remove\n";
         std::cout << "[3] Exit\n";
         std::cout << "\nEnter: ";
-        std::cin >> num;
-        if (num == 1) {
+        std::cin >> input;
+        system("cls");
+        if (input == "add" || input == "Add" || input == "1") {
             std::cout << "\nType Something: ";
             std::cin >> item;
             inv.push_back(item);
-        } else if (num == 2) {
-
-        } else if (num == 3) {
+            system("cls");
+        } else if (input == "remove" || input == "Remove" || input == "2") {
+          
+        } else if (input == "exit" || input == "Exit" || input == "3") {
             exitInv = true;
         }
     }
@@ -59,7 +61,7 @@ void integer(int i) {
     } else if (i == 2) {
         convert_min_to_s(num);
     } else if (i == 3) {
-        inventory(inv, num, exitInv, item);
+        inventory(inv, input, exitInv, item);
     } else if (i == 999) {
         exitTool = true;
     }
@@ -73,7 +75,7 @@ int main() {
         std::cout << "[999]Exit\n";
         std::cout << "\nEnter: ";
         std::cin >> i;
-        system("clear");
+        system("cls");
         integer(i);
     }
     std::cout << "Exiting...\n";
