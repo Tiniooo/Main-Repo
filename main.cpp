@@ -2,8 +2,6 @@
 #include <string>
 #include <vector>
 
-#define BUFFER_SIZE 20
-
 bool exitTool;
 bool exitInv;
 std::vector<std::string> inv = {"Apple", "Sword"};
@@ -17,7 +15,7 @@ void test() {
 
 
 void negative_algo(int num) {
-    std::cout << "---Convert Positive To Negative---\n";
+    std::cout << "---Convert Positive To Negative---\n\n";
     std::cout << "Enter A Number: ";
     std::cin >> num;
     if (num > 0) {
@@ -29,7 +27,7 @@ void negative_algo(int num) {
 }
 
 void convert_min_to_s(int num){
-    std::cout << "---Convert Minute To Second---\n";
+    std::cout << "---Convert Minute To Second---\n\n";
     std::cout << "Enter The Number Of Minute: ";
     std::cin >> num;
     if (num <= 0) {
