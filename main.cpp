@@ -2,17 +2,14 @@
 #include <string>
 #include <vector>
 #include <bits/stdc++.h>
+#include <unistd.h>
 
 bool exitTool;
 bool exitInv;
 std::vector<std::string> inv = {"Apple", "Sword"};
-std::string item, iInv, pause, key;
+std::string item, iInv, pauseCode, key, i;
 int num = 0;
-int i, ii, objIndex;
-
-void test() {
-    system("pause");
-}
+int ii, objIndex;
 
 
 void negative_algo(int num) {
@@ -24,7 +21,7 @@ void negative_algo(int num) {
     }
     std::cout << num << "\n";
     std::cout << "Type Anything and enter to continue...\n"; 
-    std::cin >> pause;
+    std::cin >> pauseCode;
 }
 
 void convert_min_to_s(int num){
@@ -38,7 +35,7 @@ void convert_min_to_s(int num){
         std::cout << num <<"s\n";
     }
     std::cout << "Type Anything and enter to continue...\n"; 
-    std::cin >> pause;
+    std::cin >> pauseCode;
 }
 
 void inventory(std::vector<std::string> inv, std::string num, bool exitInv, std::string item, int objIndex, std::string key){
@@ -70,16 +67,16 @@ void inventory(std::vector<std::string> inv, std::string num, bool exitInv, std:
     }
 }
 
-void integer(int i) {
-    if(i == 1) {
+void integer(std::string i) {
+    if(i == "1") {
         negative_algo(num);
-    } else if (i == 2) {
+    } else if (i == "2") {
         convert_min_to_s(num);
-    } else if (i == 3) {
+    } else if (i == "3") {
         inventory(inv, iInv, exitInv, item, objIndex, key);
-    } else if (i == 4) {
-        test();
-    } else if (i == 999) {
+    } else if (i == "4") {
+        
+    } else if (i == "999") {
         exitTool = true;
     }
 }
