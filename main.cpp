@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <bits/stdc++.h>
 
 bool exitTool;
 bool exitInv;
 std::vector<std::string> inv = {"Apple", "Sword"};
-std::string item, iInv, pause;
+std::string item, iInv, pause, key;
 int num = 0;
-int i, ii;
+int i, ii, objIndex;
 
 void test() {
     system("pause");
@@ -40,12 +41,14 @@ void convert_min_to_s(int num){
     std::cin >> pause;
 }
 
-void inventory(std::vector<std::string> inv, std::string num, bool exitInv, std::string item){
+void inventory(std::vector<std::string> inv, std::string num, bool exitInv, std::string item, int objIndex, std::string key){
     while(!exitInv) {
         system("clear");
+        objIndex = 1;
         std::cout << "---INVENTORY---\n";
         for(int i=0; i < inv.size(); i++){
-            std::cout << inv[i] << "\n";
+            std::cout << "[" << objIndex << "]" << inv[i] << "\n";
+            objIndex++;
         }
         std::cout << "---------------\n";
         std::cout << "[1] Add\n";
@@ -58,6 +61,9 @@ void inventory(std::vector<std::string> inv, std::string num, bool exitInv, std:
             std::cin >> item;
             inv.push_back(item);
         } else if (num == "2") {
+            std::cout << "\nType The Object That You Want To Remove: ";
+            std::cin >> key;
+            inv.erase(find(inv.begin(), inv.end(), key));
         } else if (num == "3") {
             exitInv = true;
         }
@@ -70,7 +76,7 @@ void integer(int i) {
     } else if (i == 2) {
         convert_min_to_s(num);
     } else if (i == 3) {
-        inventory(inv, iInv, exitInv, item);
+        inventory(inv, iInv, exitInv, item, objIndex, key);
     } else if (i == 4) {
         test();
     } else if (i == 999) {
