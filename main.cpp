@@ -11,7 +11,6 @@ std::string item, iInv, pauseCode, key, i;
 int num = 0;
 int ii, objIndex;
 
-
 void negative_algo(int num) {
     std::cout << "---Convert Positive To Negative---\n\n";
     std::cout << "Enter A Number: ";
