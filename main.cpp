@@ -3,7 +3,7 @@
 #include <vector>
 #include <bits/stdc++.h>
 #include <unistd.h>
-
+// Update 7
 bool exitTool;
 bool exitInv;
 std::vector<std::string> inv = {"Apple", "Sword"};
@@ -56,7 +56,7 @@ void inventory(std::vector<std::string> inv, std::string num, bool exitInv, std:
             std::cout << "[" << objIndex << "]" << inv[i] << "\n";
             objIndex++;
         }
-        
+
         std::cout << "---------------\n\n";
         std::cout << "----OPTION-----\n";
         std::cout << "[1] Add\n";
