@@ -17,9 +17,9 @@ int height = 20;
 int width = 20;
 
 void main_game(){ 
-    for(int i; i <= height; i++) {
+    for(int i; i <= width; i++) {
         std::cout << wall;
-        for (int t; i <= width; t++) {
+        for (int t; t <= height; t++) {
             std::cout << "\n";
         }
     }
