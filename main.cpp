@@ -1,9 +1,16 @@
+// Update all 1
+
+// Include File
+
 #include <iostream>
 #include <string>
 #include <vector>
 #include <bits/stdc++.h>
 #include <unistd.h>
-// Update 7
+
+#include "game.cpp"
+
+// VARIABLE
 bool exitTool;
 bool exitInv;
 std::vector<std::string> inv = {"Apple", "Sword"};
@@ -23,16 +30,8 @@ void negative_algo(int num) {
     std::cin >> pauseCode;
 }
 
-void test(int i){
-    i = 0;
-    while (true) {
-        if (i == 0) {
-            std::cin >> i;
-        }
-        i = i + i;
-        std::cout << i << std::endl;
-    }
-}
+
+
 void convert_min_to_s(int num){
     std::cout << "---Convert Minute To Second---\n\n";
     std::cout << "Enter The Number Of Minute: ";
@@ -87,7 +86,7 @@ void integer(std::string i) {
     } else if (i == "3") {
         inventory(inv, iInv, exitInv, item, objIndex, key);
     } else if (i == "4") {
-        test(numTest);
+        main_game();
     } else if (i == "999") {
         exitTool = true;
     }
