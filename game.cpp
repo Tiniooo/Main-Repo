@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <bits/stdc++.h>
-#include <unistd.h>
 
 
 // #define PLAYER "@"
