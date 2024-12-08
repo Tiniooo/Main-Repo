@@ -1,24 +1,21 @@
+#include "game.hpp"
 #include <iostream>
-#include <string>
-#include <vector>
 
-
-// #define PLAYER "@"
-// #define WALL "#"
-// #define MONSTER "M"   
-// #define GRASS_LONG "&"
-// #define MAP_HEIGHT 20
-// #define MAP_WIDTH 20
-
+// Définitions des variables
 std::string wall = "#";
-int height = 20;
-int width = 20;
+int height = 40;
+int width = 40;
 
-void main_game(){ 
-    for(int i; i <= width; i++) {
-        std::cout << wall;
-        for (int t; t <= height; t++) {
-            std::cout << "\n";
+// Définition de la fonction principale du jeu
+void main_game() {
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            if (i == 0 || i == height - 1 || j == 0 || j == width - 1) {
+                std::cout << wall; // Bordures
+            } else {
+                std::cout << "'"; // Espace intérieur
+            }
         }
+        std::cout << "\n";
     }
 }
