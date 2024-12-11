@@ -25,13 +25,13 @@ void negative_algo(int num) {
         num = num - (num * 2) ;
     }
     std::cout << num << "\n";
-    std::cout << "Type Anything and enter to continue...\n"; 
-    std::cin >> pauseCode;
+    std::cout <<"Enter To Continue...";
+    std::cin.ignore();
+    std::cin.get();
 }
 
 
-
-void convert_min_to_s(int num){
+void convert_min_to_s(int num) {
     std::cout << "---Convert Minute To Second---\n\n";
     std::cout << "Enter The Number Of Minute: ";
     std::cin >> num;
@@ -41,8 +41,9 @@ void convert_min_to_s(int num){
         num = num * 60;
         std::cout << num <<"s\n";
     }
-    std::cout << "Type Anything and enter to continue...\n"; 
-    std::cin >> pauseCode;
+    std::cout <<"Enter To Continue...";
+    std::cin.ignore();
+    std::cin.get();
 }
 
 void inventory(std::vector<std::string> inv, std::string num, bool exitInv, std::string item, int objIndex, std::string key){
@@ -70,12 +71,14 @@ void inventory(std::vector<std::string> inv, std::string num, bool exitInv, std:
         } else if (num == "2") {
             std::cout << "\nType The Object That You Want To Remove: ";
             std::cin >> key;
-            inv.erase(find(inv.begin(), inv.end(), key));
+            //inv.erase(find(inv.begin(), inv.end(), key));
         } else if (num == "3") {
             exitInv = true;
         }
     }
 }
+
+
 
 void integer(std::string i) {
     if(i == "1") {
@@ -85,6 +88,9 @@ void integer(std::string i) {
     } else if (i == "3") {
         inventory(inv, iInv, exitInv, item, objIndex, key);
     } else if (i == "4") {
+//------------------------
+//         TEST
+//------------------------
         main_game();
     } else if (i == "999") {
         exitTool = true;
@@ -100,7 +106,6 @@ int main() {
         std::cout << "[999]Exit\n";
         std::cout << "\nEnter: ";
         std::cin >> i;
-        system("cls");
         integer(i);
     }
     std::cout << "Exiting...\n";
