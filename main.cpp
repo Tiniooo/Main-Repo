@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm> // Pour `std::find`
-#include "game.hpp"  // Inclusion du fichier jeu
+#include <algorithm>
+#include "game.hpp"
 
 // Variables globales
 bool exitTool = false;
 bool exitInv = false;
-std::vector<std::string> inv = {"Apple", "Sword"};
+std::vector<std::string> inv = { "Apple", "Sword" };
 std::string item, pauseCode, key, i;
 int num = 0;
 
@@ -20,35 +20,43 @@ void negative_algo() {
         num = -num;
     }
     std::cout << num << "\n";
-    std::cout << "Press Enter to continue...\n"; 
+    std::cout << "Press Enter to continue...\n";
     std::cin.ignore();
     std::cin.get();
 }
 
+// Fonction Effacement
+void clear() {
+    system("cls");
+}
+
 void convert_min_to_s() {
+    clear();
     std::cout << "---Convert Minute To Second---\n\n";
     std::cout << "Enter The Number Of Minutes: ";
     std::cin >> num;
     if (num <= 0) {
         std::cout << "0 (Not Possible)\n";
-    } else {
+    }
+    else {
         num *= 60;
         std::cout << num << " seconds\n";
     }
-    std::cout << "Press Enter to continue...\n"; 
+    std::cout << "Press Enter to continue...\n";
     std::cin.ignore();
     std::cin.get();
 }
 
 void inventory() {
     while (!exitInv) {
-        std::system("cls"); // Pour Windows. Remplacez par `clear` sur Linux.
+        clear();
         int objIndex = 1;
         std::cout << "---INVENTORY---\n";
         for (const auto& item : inv) {
             std::cout << "[" << objIndex << "] " << item << "\n";
             objIndex++;
         }
+        std::cout << "---------------\n\n";
 
         std::cout << "\n----OPTIONS-----\n";
         std::cout << "[1] Add\n";
@@ -61,17 +69,20 @@ void inventory() {
             std::cout << "Enter Item to Add: ";
             std::cin >> item;
             inv.push_back(item);
-        } else if (num == 2) {
+        }
+        else if (num == 2) {
             std::cout << "Enter Item to Remove: ";
             std::cin >> key;
             auto it = std::find(inv.begin(), inv.end(), key);
             if (it != inv.end()) {
                 inv.erase(it);
                 std::cout << "Item Removed.\n";
-            } else {
+            }
+            else {
                 std::cout << "Item Not Found.\n";
             }
-        } else if (num == 3) {
+        }
+        else if (num == 3) {
             exitInv = true;
         }
     }
@@ -81,16 +92,20 @@ void inventory() {
 void integer(const std::string& choice) {
     if (choice == "1") {
         negative_algo();
-    } else if (choice == "2") {
+    }
+    else if (choice == "2") {
         convert_min_to_s();
-    } else if (choice == "3") {
+    }
+    else if (choice == "3") {
         inventory();
-    } else if (choice == "4") {
+    }
+    else if (choice == "4") {
         main_game();
         std::cout << "\nPress Enter to continue...\n";
         std::cin.ignore();
         std::cin.get();
-    } else if (choice == "999") {
+    }
+    else if (choice == "999") {
         exitTool = true;
     }
 }
@@ -98,12 +113,13 @@ void integer(const std::string& choice) {
 // Fonction principale
 int main() {
     while (!exitTool) {
-        std::system("cls"); // Pour Windows. Remplacez par `clear` sur Linux.
-        std::cout << "[1] Negative Algorithm\n";
-        std::cout << "[2] Minute To Second Algorithm\n";
-        std::cout << "[3] Inventory System\n";
-        std::cout << "[4] Display Game Map\n";
-        std::cout << "[999] Exit\n";
+        clear();
+        std::cout << "xX--------------MENU---------------Xx\n";
+        std::cout << "[1]      Negative Algorithm      [1]\n";
+        std::cout << "[2]  Minute To Second Algorithm  [2]\n";
+        std::cout << "[3]       Inventory System       [3]\n";
+        std::cout << "[4]       Display Game Map       [4]\n";
+        std::cout << "[999]           Exit           [999]\n";           
         std::cout << "Enter: ";
         std::cin >> i;
 

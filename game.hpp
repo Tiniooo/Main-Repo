@@ -10,5 +10,6 @@ extern int width;
 
 // Déclaration de la fonction
 void main_game();
+void clear(); 
 
 #endif // GAME_HPP
