@@ -1,5 +1,106 @@
+<!DOCTYPE html>
 <html>
-    <body>
-        <script type="module" src="./src/main.js"></script>
-    </body>
+  <head>
+    <title></title>
+    <meta charset="utf8" />
+  </head>
+  <body>
+    <style>
+
+      /* Basique */
+      body {
+        display: flex;
+        animation: background-animation 10s ease-in alternate infinite;
+        background: black;
+      }
+
+      .loader {
+        position: relative;
+        width: 120px;   
+        height: 90px;
+        margin: 0 auto;
+        top: 400px;
+        display: flex;
+      }
+
+      .loader:before {
+        content: "";
+        position: absolute; 
+        bottom: 30px; /*emplacement le plus bas possible pour la balle*/
+        left: 50px;/* emplacement de la balle */
+        height: 20px;/*taille de la balle y*/
+        width: 20px;/*taille de la balle x*/
+        border-radius: 50%;/**/
+        background: #ff0000;/*couleur de la balle*/
+        animation: loading-bounce 0.25s ease-out infinite alternate;/*animation*/
+      }
+
+      .loader:after {
+        content: "";
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        height: 12px;
+        width: 40px;
+        border-radius: 4px;
+        box-shadow: 0 5px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 95px 0 #f2f2f2;
+        animation: loading-step 0.5s ease-in-out infinite;
+      }
+       
+      button {
+        background-color: #ffffff;
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+        border-radius: 8px;
+        width: 100px;
+        height: 45px;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background-color: #000000;
+        box-shadow: 0 0 0 5px #7878785f;
+        color: #000000;
+      }
+
+      @keyframes loading-bounce {
+        0% {
+          transform: scale(1, 0.7);
+        }
+
+        40% {
+          transform: scale(0.8, 1.2);
+        }
+
+        60% {
+          transform: scale(1, 1);
+        }
+
+        100% {
+          /* emplacement le plus haut possible pour la balle */
+          bottom: 250px;
+        }
+      }
+
+      @keyframes loading-step {
+        0% {
+          box-shadow: 0 10px 0 rgba(0, 0, 0, 0),
+                  0 10px 0 blue,
+                  -35px 50px 0 blue,
+                  -70px 90px 0 blue;
+        }
+
+        100% {
+          box-shadow: 0 10px 0 red,
+                  -35px 50px 0 red,
+                  -70px 90px 0 red,
+                  -70px 90px 0 rgba(0, 0, 0, 0);
+        }
+      }
+    </style>
+    <div class="loader"></div> 
+    <button></button>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
 </html>
